@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-12 border-t border-slate-900 bg-slate-950 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-slate-400 text-sm">
+        &copy; {currentYear} Abdulselam Abdurehman. <br
+          class="md:hidden"
+        />Engineered Clarity.
+      </div>
+
+      <div class="flex gap-6">
+        <a
+          href="mailto:abdulselamah@gmail.com"
+          class="text-slate-400 hover:text-blue-400 transition-colors"
+          aria-label="Email"
+        >
+          <Icon name="mdi:email-outline" class="w-6 h-6" />
+        </a>
+        <a
+          href="https://github.com/AbdulselamAbdurehman"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-slate-400 hover:text-blue-400 transition-colors"
+          aria-label="GitHub"
+        >
+          <Icon name="mdi:github" class="w-6 h-6" />
+        </a>
+        <a
+          href="https://linkedin.com/in/abdulselam-abdurehman"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-slate-400 hover:text-blue-400 transition-colors"
+          aria-label="LinkedIn"
+        >
+          <Icon name="mdi:linkedin" class="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

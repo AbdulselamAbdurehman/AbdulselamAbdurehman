@@ -1,0 +1,3 @@
+PLACE YOUR RESUME HERE.
+Name the file "resume.pdf".
+This will be accessible at /resume.pdf

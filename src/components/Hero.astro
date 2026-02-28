@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex flex-col justify-center items-start pt-32 pb-16"
+>
+  <div class="space-y-6 max-w-3xl">
+    <p class="text-blue-400 font-medium tracking-wide">Hi, I'm</p>
+    <h1
+      class="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent pb-2"
+    >
+      Abdulselam Abdurehman.
+    </h1>
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-400">
+      I build scalable systems.
+    </h2>
+    <p class="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed">
+      Software Engineer & Architect focused on engineered clarity. I design and
+      build high-throughput microservices, efficient algorithms, and robust
+      fleet management systems.
+    </p>
+
+    <div class="flex flex-wrap gap-4 pt-4">
+      <a
+        href="/resume.pdf"
+        class="px-6 py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition duration-300 flex items-center gap-2"
+      >
+        <Icon name="mdi:file-document-outline" class="w-5 h-5" />
+        View Resume
+      </a>
+      <a
+        href="https://github.com/AbdulselamAbdurehman"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-6 py-3 border border-slate-700 text-slate-300 font-medium rounded hover:border-blue-500 hover:text-blue-400 transition duration-300 flex items-center gap-2"
+      >
+        <Icon name="mdi:github" class="w-5 h-5" />
+        GitHub
+      </a>
+      <a
+        href="https://linkedin.com/in/abdulselam-abdurehman"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-6 py-3 border border-slate-700 text-slate-300 font-medium rounded hover:border-blue-500 hover:text-blue-400 transition duration-300 flex items-center gap-2"
+      >
+        <Icon name="mdi:linkedin" class="w-5 h-5" />
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>

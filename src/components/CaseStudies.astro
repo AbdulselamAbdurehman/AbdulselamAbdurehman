@@ -1,0 +1,137 @@
+---
+interface CaseStudy {
+  title: string;
+  role: string;
+  company: string;
+  period: string;
+  challenge: string;
+  solution: string;
+  outcome: string;
+  tags: string[];
+}
+
+const caseStudies: CaseStudy[] = [
+  {
+    title: "High-Throughput Delivery Microservice",
+    role: "Software Engineer",
+    company: "Venas Technologies",
+    period: "08/2025 – Present",
+    challenge:
+      "Existing routing solutions were costly and inefficient for batching orders, leading to high operational expenses and suboptimal rider utilization.",
+    solution:
+      "Developed a custom Compute Route Matrix solution and a real-time tracking system. Replaced per-sequence API calls with a batch-optimized algorithm capable of handling dynamic rerouting for uo to 3 orders per rider.",
+    outcome:
+      "Projected 40% improvement in order assignment success rates and halved Google Maps usage costs through optimized batch routing.",
+    tags: [
+      "Microservices",
+      "Real-time Systems",
+      "Algorithm Optimization",
+      "Google Maps Platform",
+    ],
+  },
+  {
+    title: "Comprehensive Fleet Management System",
+    role: "Software Engineer",
+    company: "AAU Startups",
+    period: "02/2025 – Present",
+    challenge:
+      "Startups incubators lacked a unified system to manage 400+ vehicles, fuel, trips, and compliance, relying on disjointed manual workflows.",
+    solution:
+      "Architected an end-to-end web application with modules for Vehicle, Fuel, and Trip management. Integrated GPS-based real-time tracking, geo-fencing, and automated reporting.",
+    outcome:
+      "Automated manual workflows, enhanced operational efficiency by 60%, and generated approximately 1M birr in cost savings.",
+    tags: [
+      "Full Stack",
+      "GPS Integration",
+      "System Architecture",
+      "React",
+      "Node.js",
+    ],
+  },
+  {
+    title: "National Blood & Tissue Bank System Modernization",
+    role: "Software Engineering",
+    company: "HabTech Solutions",
+    period: "02/2025 – 06/2025",
+    challenge:
+      "A critical national legacy system running on Java 8 suffered from dependency conflicts, deprecated APIs, and undocumented customizations.",
+    solution:
+      "Led the migration to Java 21, resolving complex dependency conflicts and refactoring legacy code. Integrated device and SMS gateway functionalities for automated notifications.",
+    outcome:
+      "Successfully modernized the core application, ensuring system stability and regulatory compliance while maintaining all undocumented legacy customizations.",
+    tags: [
+      "Java 21",
+      "Legacy Modernization",
+      "SMS Gateway",
+      "System Integration",
+    ],
+  },
+];
+---
+
+<section id="projects" class="py-20">
+  <h2 class="text-3xl md:text-4xl font-bold mb-12 flex items-center gap-4">
+    <span class="text-blue-500">02.</span> Case Studies
+  </h2>
+
+  <div class="space-y-24">
+    {
+      caseStudies.map((project, index) => (
+        <div class="group relative grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-12 lg:col-span-12 flex flex-col h-full justify-center z-10">
+            <header class="mb-6">
+              <div class="flex items-center justify-between mb-2">
+                <p class="text-blue-500 font-mono text-sm tracking-widest">
+                  {project.company}
+                </p>
+                <span class="text-slate-500 text-xs font-mono">
+                  {project.period}
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-100 hover:text-blue-400 transition-colors">
+                {project.title}
+              </h3>
+            </header>
+
+            <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-lg backdrop-blur-sm shadow-xl mb-6">
+              <div class="space-y-4">
+                <div>
+                  <h4 class="text-sm uppercase tracking-wide text-slate-500 font-semibold mb-1">
+                    The Challenge
+                  </h4>
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    {project.challenge}
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-sm uppercase tracking-wide text-slate-500 font-semibold mb-1">
+                    The Solution
+                  </h4>
+                  <p class="text-slate-300 text-sm leading-relaxed">
+                    {project.solution}
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-sm uppercase tracking-wide text-slate-500 font-semibold mb-1">
+                    The Outcome
+                  </h4>
+                  <p class="text-slate-300 text-sm leading-relaxed border-l-2 border-blue-500 pl-3">
+                    {project.outcome}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="flex flex-wrap gap-3 text-slate-400 font-mono text-xs">
+              {project.tags.map((tag) => (
+                <li class="bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700/50 hover:border-blue-500/30 transition-colors">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

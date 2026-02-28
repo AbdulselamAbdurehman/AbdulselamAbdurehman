@@ -1,0 +1,99 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<section id="blog-gateway" class="py-20 border-t border-slate-800/50">
+  <div class="grid md:grid-cols-2 gap-16">
+    <div>
+      <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-blue-500">04.</span> Intellectual Arena
+      </h2>
+      <p class="text-slate-400 mb-8 leading-relaxed">
+        Architecture isn't just about building; it's about thinking. Here are my
+        recent deep dives into system design, algorithmic challenges, and
+        engineering philosophy.
+      </p>
+
+      <div class="space-y-6">
+        <h3
+          class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4"
+        >
+          Recent Writings
+        </h3>
+        <ul class="space-y-4">
+          {
+            sortedPosts.length > 0 ? (
+              sortedPosts.map((post) => (
+                <li>
+                  <a href={`/blog/${post.slug}`} class="group block">
+                    <h4 class="text-slate-200 font-medium group-hover:text-blue-400 transition-colors">
+                      {post.data.title}
+                    </h4>
+                    <p class="text-slate-500 text-sm mt-1">
+                      {post.data.description}
+                    </p>
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li class="text-slate-600 italic">No posts yet. Coming soon.</li>
+            )
+          }
+        </ul>
+        <div class="mt-6">
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 font-medium transition-colors"
+          >
+            Read all articles <Icon name="mdi:arrow-right" class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-slate-900/20 p-8 rounded-2xl border border-slate-800/50 flex flex-col justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-bold text-slate-200 mb-6">Problem Solving</h3>
+        <p class="text-slate-400 text-sm mb-8">
+          The gym for the mind. I regularly practice algorithmic challenges to
+          keep my problem-solving skills sharp.
+        </p>
+
+        <div class="space-y-4">
+          <a
+            href="#"
+            class="flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded hover:border-blue-500/50 hover:bg-slate-800 transition-all group"
+          >
+            <span class="text-slate-300 group-hover:text-white font-medium"
+              >LeetCode</span
+            >
+            <Icon
+              name="mdi:external-link"
+              class="w-4 h-4 text-slate-600 group-hover:text-blue-400"
+            />
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded hover:border-blue-500/50 hover:bg-slate-800 transition-all group"
+          >
+            <span class="text-slate-300 group-hover:text-white font-medium"
+              >HackerRank</span
+            >
+            <Icon
+              name="mdi:external-link"
+              class="w-4 h-4 text-slate-600 group-hover:text-blue-400"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
