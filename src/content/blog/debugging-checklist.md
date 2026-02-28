@@ -1,5 +1,5 @@
 ---
-title: "Chase bugs like a pro: A simple debugging checklist for developers"
+title: "Chase bugs like a pro: Save yourself from frustration"
 description: "A structured approach to debugging that saves hours of frustration."
 pubDate: 2026-02-28
 tags: ["Debugging", "Problem Solving", "Productivity"]
