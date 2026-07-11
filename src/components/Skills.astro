@@ -21,27 +21,19 @@ const skills = {
 };
 ---
 
-<section id="skills" class="py-20">
-  <h2 class="text-3xl md:text-4xl font-bold mb-12 flex items-center gap-4">
-    <span class="text-blue-500">03.</span> Core Competencies
-  </h2>
+<section id="skills" class="py-20 border-t border-line">
+  <div class="grid md:grid-cols-[10rem_1fr] gap-8">
+    <h2 class="text-sm tracking-widest uppercase text-muted pt-1">Toolkit</h2>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {
-      Object.entries(skills).map(([category, items]) => (
-        <div class="bg-slate-900/30 border border-slate-800 p-6 rounded-lg hover:bg-slate-800/30 transition-colors duration-300">
-          <h3 class="text-blue-400 font-bold mb-4 tracking-wide uppercase text-sm">
-            {category}
-          </h3>
-          <ul class="space-y-2">
-            {items.map((item) => (
-              <li class="flex items-center gap-2 text-slate-400 text-sm hover:text-slate-200 transition-colors">
-                <span class="text-blue-500/50">▹</span> {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
+    <div class="space-y-6 max-w-xl">
+      {
+        Object.entries(skills).map(([category, items]) => (
+          <div class="grid grid-cols-[7rem_1fr] gap-4 items-baseline border-b border-line pb-5 last:border-0">
+            <h3 class="text-sm text-accent">{category}</h3>
+            <p class="text-ink/80 leading-relaxed">{items.join(", ")}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

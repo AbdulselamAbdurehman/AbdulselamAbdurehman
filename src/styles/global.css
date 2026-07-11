@@ -2,30 +2,57 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --color-paper: #f7f5f0;
+  --color-ink: #1c1a17;
+  --color-muted: #6b6660;
+  --color-line: #e4e0d8;
+  --color-accent: #9a3b2e;
 }
 
 html,
 body {
-  @apply bg-slate-950 text-slate-300 font-sans antialiased scroll-smooth;
+  @apply bg-paper text-ink font-sans antialiased scroll-smooth;
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply text-slate-50 font-bold tracking-tight;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif text-ink;
+  font-weight: 460;
+  letter-spacing: -0.01em;
 }
 
 section {
-  @apply py-20 px-6 max-w-4xl mx-auto;
+  @apply max-w-2xl mx-auto px-6;
 }
 
-.btn-primary {
-  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200 shadow-lg shadow-blue-500/20 active:scale-95;
+a {
+  @apply transition-colors duration-200;
 }
 
-.btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-3 border border-slate-700/50 text-base font-medium rounded-md text-slate-300 bg-slate-800/50 hover:bg-slate-800 transition-colors duration-200 active:scale-95 hover:border-slate-600;
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
 }
 
-.card {
-  @apply bg-slate-900/50 border border-slate-800 rounded-lg p-6 hover:border-slate-700 transition-all duration-300;
+.link-underline {
+  @apply relative text-ink;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+  padding-bottom: 1px;
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+  color: var(--color-accent);
 }

@@ -8,73 +8,43 @@ const sortedPosts = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-const title = "The Intellectual Arena | Abdulselam Abdurehman";
+const title = "Writing | Abdulselam Abdurehman";
 const description =
-  "Deep dives into software architecture, system design, and engineering philosophy.";
+  "Notes on software architecture, system design, and engineering.";
 ---
 
 <Layout title={title} description={description}>
-  <main class="min-h-screen py-20 max-w-4xl mx-auto px-6">
+  <main class="min-h-screen py-24 max-w-2xl mx-auto px-6">
     <header class="mb-16">
-      <a
-        href="/"
-        class="text-blue-500 hover:text-blue-400 mb-8 inline-block transition-colors"
-        >&larr; Back to Home</a
+      <a href="/" class="link-underline text-sm text-muted mb-10 inline-block"
+        >&larr; Back to home</a
       >
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4">
-        The Intellectual Arena
-      </h1>
-      <p class="text-xl text-slate-400 max-w-2xl">
-        Thoughts on architecture, complexity, and the pursuit of engineered
-        clarity.
+      <h1 class="text-4xl md:text-5xl mb-4">Writing</h1>
+      <p class="text-xl text-muted font-serif max-w-lg leading-relaxed">
+        Notes on architecture, complexity, and building software with clarity.
       </p>
     </header>
 
-    <div class="space-y-12">
+    <div class="divide-y divide-line border-t border-line">
       {
         sortedPosts.map((post) => (
-          <article class="group relative flex flex-col items-start">
-            <h2 class="text-2xl font-bold text-slate-200 group-hover:text-blue-400 transition-colors">
-              <a href={`/blog/${post.slug}`}>
-                <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                <span class="relative z-10">{post.data.title}</span>
-              </a>
-            </h2>
-            <time
-              datetime={post.data.pubDate.toISOString()}
-              class="relative z-10 order-first mb-3 flex items-center text-sm text-slate-500 pl-3.5"
-            >
-              <span
-                class="absolute inset-y-0 left-0 flex items-center"
-                aria-hidden="true"
+          <article>
+            <a href={`/blog/${post.slug}`} class="group block py-6">
+              <time
+                datetime={post.data.pubDate.toISOString()}
+                class="text-sm text-muted"
               >
-                <span class="h-4 w-0.5 rounded-full bg-slate-500" />
-              </span>
-              {post.data.pubDate.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-            <p class="relative z-10 mt-2 text-sm leading-6 text-slate-400 max-w-3xl">
-              {post.data.description}
-            </p>
-            <div class="relative z-10 mt-4 flex items-center text-sm font-medium text-blue-500">
-              Read article
-              <svg
-                class="ml-1 h-4 w-4 stroke-current"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M6.75 5.75 9.25 8l-2.5 2.25"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
+                {post.data.pubDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+              <h2 class="text-2xl mt-1 mb-2 group-hover:text-accent transition-colors">
+                {post.data.title}
+              </h2>
+              <p class="text-ink/70 leading-relaxed">{post.data.description}</p>
+            </a>
           </article>
         ))
       }
